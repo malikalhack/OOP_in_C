@@ -1,0 +1,11 @@
+.vs
+Debug
+Release
+x64
+Encapsulation\Debug
+Encapsulation\Release
+Inheritance\Debug
+Inheritance\Release
+Polymorphism\Debug
+Polymorphism\Release
+

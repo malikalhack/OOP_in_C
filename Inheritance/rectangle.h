@@ -7,7 +7,7 @@ typedef struct {
     Coordinate super; /* <== inherits Shape */
     /* attributes added by this subclass... */
     unsigned int width;
-    unsigned int height;
+    unsigned int length;
 } Rectangle;
 
 /* constructor prototype */

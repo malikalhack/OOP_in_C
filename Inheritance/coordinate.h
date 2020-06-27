@@ -8,9 +8,9 @@ typedef struct {
 } Coordinate;
 
 /* coordinate's operations (interface)... */
-void Coordinate_ctor(Coordinate *, int, int);
-void Coordinate_moveBy(Coordinate *, int, int);
-int Coordinate_getX(Coordinate *);
-int Coordinate_getY(Coordinate *);
+void Coordinate_ctor(Coordinate * const, int, int);
+void Coordinate_moveBy(Coordinate * const, int, int);
+int Coordinate_getX(Coordinate * const);
+int Coordinate_getY(Coordinate * const);
 
 #endif /* COORDINATE_H */

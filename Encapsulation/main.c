@@ -15,12 +15,12 @@ int main() {
 		int x, y;
 		char temp;
 		printf("\nEnter the coordinate offset (x, y) of point p1: ");
-		fflush(stdout);
+		fflush(stdin);
 		scanf("%d %d", &x, &y);
 		Coordinate_moveBy(&p1, x, y);		
 		
 		printf("Enter the coordinate offset (x, y) of point p2: ");
-		fflush(stdout);
+		fflush(stdin);
 		scanf("%d %d", &x, &y);
 		Coordinate_moveBy(&p2, x, y);
 
@@ -29,7 +29,7 @@ int main() {
 		
 
 		printf("Do you want to continue? (Y):");
-		fflush(stdout);
+		fflush(stdin);
 		scanf("%c %c", &temp, &answer);
 		printf("\n");
 	} while ((answer=='y')||(answer == 'Y'));

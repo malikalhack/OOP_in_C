@@ -4,7 +4,7 @@
 
 /* Rectangle's attributes... */
 typedef struct {
-    Coordinate super; /* <== inherits Shape */
+    Coordinate super; /* inherits Coordinate */
     /* attributes added by this subclass... */
     unsigned int width;
     unsigned int length;

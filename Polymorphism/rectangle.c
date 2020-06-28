@@ -7,8 +7,8 @@ static uint32_t Rectangle_area_(Coordinate const * const self);
 static void Rectangle_draw_(Coordinate const * const self);
 
 /* constructor implementation */
-void Rectangle_ctor(Rectangle * const self, int16_t x, int16_t y,
-                    uint16_t width, uint16_t height) {
+void Rectangle_ctor(Rectangle * const self, int x, int y,
+	unsigned int width, unsigned int height) {
     static struct CoordinateVtbl const vtbl = { /* vtbl of the Rectangle class */
         &Rectangle_area_,
         &Rectangle_draw_

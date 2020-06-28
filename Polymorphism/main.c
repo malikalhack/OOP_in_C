@@ -13,11 +13,11 @@ int main() {
     };
     Coordinate const *s;
     /* instantiate rectangles... */
-    Rectangle_ctor(&r1, 0, 2, 10, 15);
-    Rectangle_ctor(&r2, -1, 3, 5, 8);
+    Rectangle_ctor(&r1, 0, 0, 10, 15);
+    Rectangle_ctor(&r2, 0, 0, 5, 8);
     /* instantiate circles... */
-    Circle_ctor(&c1, 1, -2, 12);
-    Circle_ctor(&c2, 1, -3, 6);
+    Circle_ctor(&c1, 0, 0, 12);
+    Circle_ctor(&c2, 0, 0, 6);
     s = largestCoordinate(coordinates, sizeof(coordinates)/sizeof(coordinates[0]));
     printf("largetsCoordinate s(x=%d,y=%d)\n",
            Coordinate_getX(&s), Coordinate_getY(&s));

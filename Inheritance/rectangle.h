@@ -11,6 +11,6 @@ typedef struct {
 } Rectangle;
 
 /* constructor prototype */
-void Rectangle_ctor(Rectangle *, int, int, unsigned int, unsigned int);
+void Rectangle_ctor(Rectangle * const, int, int, unsigned int, unsigned int);
 
 #endif /* RECT_H */

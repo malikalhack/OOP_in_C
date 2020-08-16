@@ -1,11 +1,14 @@
 #include "coordinate.h" /* coordinate class interface */
+
 #define UPPER_LIMIT  100
 #define LOWER_LIMIT -100
+
 /* constructor implementation */
 void Coordinate_ctor(Coordinate * const self, int x, int y) {
 	self->x = x;
 	self->y = y;
 }
+
 /* move-by operation implementation */
 void Coordinate_moveBy(Coordinate * const self, int dx, int dy) {
 	unsigned char act = 1;
@@ -72,10 +75,12 @@ void Coordinate_moveBy(Coordinate * const self, int dx, int dy) {
 	}
 	if (act) self->y += dy;
 }
+
 /* "getter" operations implementation */
 int Coordinate_getX(Coordinate * const self) {
 	return self->x;
 }
+
 int Coordinate_getY(Coordinate * const self) {
 	return self->y;
 }

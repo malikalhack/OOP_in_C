@@ -15,10 +15,12 @@ int main() {
 		printf("\nEnter the length and width of rectangle r1: ");
 		fflush(stdout);
 		scanf("%d %d", &l, &w);
+		fflush(stdin);
 		Rectangle_ctor(&r1, 0, 0, w, l);
 		printf("Enter the length and width of rectangle r2: ");
 		fflush(stdout);
 		scanf("%d %d", &l, &w);
+		fflush(stdin);
 		Rectangle_ctor(&r2, 0, 0, w, l);
 	}
 
@@ -32,22 +34,19 @@ int main() {
 		int x, y;
 		char temp;
 		printf("\nEnter the coordinate offset (x, y) of rectangle r1: ");
-		fflush(stdout);
 		scanf("%d %d", &x, &y);
 		Coordinate_moveBy((Coordinate *)&r1, x, y);
 
 		printf("Enter the coordinate offset (x, y) of rectangle r2: ");
-		fflush(stdout);
 		scanf("%d %d", &x, &y);
 		Coordinate_moveBy(&r2.super, x, y);
 
-		printf("\New coordinates of a rectangle r1 with length=%d and width=%d: x=%d,y=%d \n",
+		printf("New coordinates of a rectangle r1 with length = %d and width = %d: x = %d, y = %d \n",
 			r1.length, r1.width, r1.super.x, r1.super.y);
-		printf("\New coordinates of a rectangle r2 with length=%d and width=%d: x=%d,y=%d \n",
+		printf("New coordinates of a rectangle r2 with length = %d and width = %d: x = %d, y = %d \n",
 			r2.length, r2.width, r2.super.x, r2.super.y);
 
 		printf("Do you want to continue? (Y):");
-		fflush(stdout);
 		scanf("%c %c", &temp, &answer);
 		printf("\n");
 

@@ -3,8 +3,14 @@
 
 #include <stdint.h>
 
-/*#define Coordinate_area(self_) ((*(self_)->vptr->area)((self_)))*/
-/*#define Coordinate_draw(self_) ((*(self_)->vptr->draw)(self_))*/
+struct CoordinateVtbl;
+
+/* Coordinate's attributes... */
+typedef struct {
+	struct CoordinateVtbl const *vptr; /* Coordinate's Virtual Pointer */
+	int x; /* x-coordinate of position */
+	int y; /* y-coordinate of position */
+} Coordinate;
 
 /* Coordinate's virtual table */
 struct CoordinateVtbl {
@@ -12,18 +18,15 @@ struct CoordinateVtbl {
 	void(*draw)(Coordinate const * const self);
 };
 
-/* Coordinate's attributes... */
-typedef struct {
-    struct CoordinateVtbl const *vptr; /* Coordinate's Virtual Pointer */
-    int x; /* x-coordinate of position */
-    int y; /* y-coordinate of position */
-} Coordinate;
+/* Coordinate's prototypes of its virtual functions */
+static uint32_t Coordinate_area_(Coordinate const * const);
+static void Coordinate_draw_(Coordinate const * const);
 
 /* coordinate's operations (interface)... */
-void Coordinate_ctor(Coordinate * const self, int x, int y);
-void Coordinate_moveBy(Coordinate * const self, int dx, int dy);
+void Coordinate_ctor(Coordinate * const self, int16_t x, int16_t y);
+void Coordinate_moveBy(Coordinate * const self, int16_t dx, int16_t dy);
 
-static inline uint32_t Coordinate_area(Coordinate const * const self){
+static inline uint32_t Coordinate_area(Coordinate const * const self) {
 	return (*self->vptr->area)(self);
 }
 static inline void Coordinate_draw(Coordinate const * const self) {
@@ -31,7 +34,6 @@ static inline void Coordinate_draw(Coordinate const * const self) {
 }
 
 /* generic operations on collections of Coordinates */
-Coordinate const *largestCoordinate(Coordinate const *coordinates[], uint32_t nCoordinates);
 void drawAllCoordinates(Coordinate const *coordinates[], uint32_t nCoordinates);
 
 #endif /* COORDINATE_H */

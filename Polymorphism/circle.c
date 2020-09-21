@@ -1,4 +1,4 @@
-#include "circle.h" /* Rectangle class interface */
+#include "circle.h" /* Circle class interface */
 #include <stdio.h> /* for printf() */
 
 /* constructor implementation */
@@ -15,11 +15,11 @@ void Circle_ctor(Circle * const self, int x, int y, unsigned int radius) {
 /* Rectangle's class implementations of its virtual functions... */
 static uint32_t Circle_area_(Coordinate const * const self) {
 	Circle const * const self_ = (Circle const *)self; /* explicit downcast */
-	return (uint32_t)self_->radius * PI;
+	return (uint32_t)(PI * self_->radius * self_->radius);
 }
 
 static void Circle_draw_(Coordinate const * const self) {
 	Circle const * const self_ = (Circle const *)self; /* explicit downcast */
-	printf("Rectangle_draw_(x=%d,y=%d,radius=%d)\n",
+	printf("Circle_draw_(x=%d,y=%d,radius=%d)\n",
 		self_->super.x, self_->super.y, self_->radius);
 }

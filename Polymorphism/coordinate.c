@@ -1,5 +1,6 @@
+#include <stdio.h>
+#include <assert.h>		/*for displaying an error message and terminating the program*/
 #include "coordinate.h" /* coordinate class interface */
-#include <assert.h> /*for displaying an error message and terminating the program*/
 
 #define UPPER_LIMIT  100
 #define LOWER_LIMIT -100
@@ -93,8 +94,15 @@ static void Coordinate_draw_(Coordinate const * const self) {
 }
 
 /* The following code will draw all Coordinates on the screen */
-void drawAllCoordinates(Coordinate const *coordinates[], uint32_t nCoordinates) {
-	for (uint8_t i = 0; i < nCoordinates; ++i) {
+void drawAllCoordinates(Coordinate const *coordinates[], uint32_t length) {
+	for (uint8_t i = 0; i < length; ++i) {
 		Coordinate_draw(coordinates[i]); /* virtual call */
+	}
+}
+
+/* The following code will draw all the area values of the figures on the screen. */
+void drawAllAreas(Coordinate const *coordinates[], uint32_t length) {
+	for (uint8_t i = 0; i < length; ++i) {
+		printf("The area of %d figure is %i\n", i, Coordinate_area(coordinates[i])); /* virtual call */	
 	}
 }

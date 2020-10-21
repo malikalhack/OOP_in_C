@@ -1,0 +1,7 @@
+# OOP_in_C  
+It is a **C** implementation of the **object-oriented programming** paradigm.  
+
+The solution implements an example that allows you to move a shape
+(*point*, *rectangle*, *circle*) within the specified field (by default,
+limited to coordinates -100; 100). The solution contains three projects:
+encapsulation, inheritance, polymorphism.  

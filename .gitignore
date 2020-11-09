@@ -1,11 +1,29 @@
-.vs
-Debug
-Release
-x64
-Encapsulation\Debug
-Encapsulation\Release
-Inheritance\Debug
-Inheritance\Release
-Polymorphism\Debug
-Polymorphism\Release
+# Visual Studio 2015 cache/options directory
+/.vs
 
+/[Dd]ebug
+/[Rr]elease
+/x64
+/x86
+
+*.ilk
+*.obj
+*.pdb
+*.tmp
+*.log
+*.tlog
+*.idb
+*.lastbuildstate
+
+
+*.exe
+*.bat
+*.7z
+
+# User-specific files
+*.user
+
+# Cache files
+*.opendb
+*.[Vv][Cc].db
+*.VC.VC.opendb

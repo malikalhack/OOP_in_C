@@ -5,6 +5,7 @@
  * @date    27/10/2022
  * @date    29/10/2022
  */
+
 /****************************** Included files ********************************/
 #include "coordinate.h"
 #include <assert.h>

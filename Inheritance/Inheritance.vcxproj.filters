@@ -1,32 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Include">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\main.c">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\src\coordinate.c">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\src\test.c">
-      <Filter>Source</Filter>
-    </ClCompile>
+    <Filter Include="Source">
+      <UniqueIdentifier>{95076595-3410-4a31-b2b9-a5acba81e435}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\inc\coordinate.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="inc\rectangle.h">
+      <Filter>Include</Filter>
+    </ClInclude>
     <ClInclude Include="..\Common\inc\test.h">
       <Filter>Include</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\src\coordinate.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rectangle.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\src\test.c">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -103,4 +103,4 @@ coordinate_t GetXCoordinate(Coordinate * const);
  */
 coordinate_t GetYCoordinate(Coordinate * const);
 /******************************************************************************/
-#endif
+#endif /* !COORDINATE_H */

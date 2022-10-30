@@ -7,22 +7,14 @@
  */
 
 /****************************** Included files ********************************/
-#include <stdio.h>
-#include <stdbool.h>
+#include "test.h"
 #include "coordinate.h" /* coordinate class interface */
 /******************************** Definition **********************************/
 #define ENABLE_QUICK_TEST   (1)
 #define ENABLE_MOVE_TEST    (1)
 #define ENABLE_OFFSET_TEST  (1)
-
-#define TEST_START(name)\
-    printf("\n\r>>> Test start for %s <<<\n\n", name)
-#define TEST_FINISH \
-    printf("*******************************************************************\
-***********\n")
 /************************ Private  functions prototypes ***********************/
-bool DoRepeat(void);
-void PrintCoordinatesOfBothPoints(Coordinate * const, Coordinate * const);
+static void PrintCoordinatesOfBothPoints(Coordinate * const, Coordinate * const);
 /********************************* Entry point ********************************/
 int main(void) {
     Coordinate p1, p2; /* multiple instances of Coordinate */
@@ -120,7 +112,10 @@ int main(void) {
     return 0;
 }
 /****************************** Private  functions ****************************/
-void PrintCoordinatesOfBothPoints(Coordinate * const p1, Coordinate * const p2) {
+static void PrintCoordinatesOfBothPoints(
+    Coordinate * const p1,
+    Coordinate * const p2
+) {
     printf(
         "\nThe current coordinates of point p1 are (x: %3u; y: %3u)\n",
         GetXCoordinate(p1),
@@ -131,13 +126,5 @@ void PrintCoordinatesOfBothPoints(Coordinate * const p1, Coordinate * const p2) 
         GetXCoordinate(p2),
         GetYCoordinate(p2)
     );
-}
-/*----------------------------------------------------------------------------*/
-bool DoRepeat(void) {
-    char answer;
-    printf("Would you like to repeat the test? ");
-    fflush(stdout);
-    scanf(" %c", &answer);
-    return (((answer == 'y') || (answer == 'Y')) ? true : false);
 }
 /******************************************************************************/

@@ -17,9 +17,15 @@
     <ClCompile Include="..\Common\src\coordinate.c">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\Common\src\test.c">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\inc\coordinate.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\inc\test.h">
       <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>

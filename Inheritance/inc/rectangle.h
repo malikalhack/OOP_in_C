@@ -10,11 +10,18 @@
 /****************************** Included files ********************************/
 #include "coordinate.h" /* coordinate class interface */
 /******************************** Definition **********************************/
+#define WIDTH_LIMIT     (50u)
+#define LENGTH_LIMIT    (50u)
+
+#if !(WIDTH_LIMIT && LENGTH_LIMIT)
+    #error Rectangle limits are wrong
+#endif //Checking limits
+
 typedef uint16_t params_t;
 
 /* Rectangle's attributes... */
 typedef struct {
-    Coordinate super; /* it inherits Coordinate */
+    Coordinate super;   ///< Inheritance of the coordinate functional
     /* attributes added by this subclass... */
     params_t width;     ///< the width of a rectangle
     params_t length;    ///< the length of a rectangle
@@ -36,5 +43,17 @@ typedef struct {
 void Rectangle_ctor(
     Rectangle * const, coordinate_t, coordinate_t, params_t, params_t
 );
+
+/**
+ * @brief The function to return the length for the specified object.
+ * param[in] self - a pointer to the specified object
+ */
+params_t GetLength(Rectangle * const);
+
+/**
+ * @brief The function to return the width for the specified object.
+ * param[in] self - a pointer to the specified object
+ */
+params_t GetWidth(Rectangle * const);
 /******************************************************************************/
 #endif /* !RECTANGLE_H */

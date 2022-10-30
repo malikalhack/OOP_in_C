@@ -132,7 +132,7 @@ void PrintCoordinatesOfBothPoints(Coordinate * const p1, Coordinate * const p2) 
         GetYCoordinate(p2)
     );
 }
-
+/*----------------------------------------------------------------------------*/
 bool DoRepeat(void) {
     char answer;
     printf("Would you like to repeat the test? ");

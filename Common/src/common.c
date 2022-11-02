@@ -1,5 +1,5 @@
 /**
- * @file    common.h
+ * @file    common.c
  * @version 1.0.0
  * @authors Anton Chernov
  * @date    02/11/2022

@@ -8,16 +8,15 @@
 
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
- /****************************** Included files ********************************/
+/****************************** Included files ********************************/
 #include "coordinate.h" /* coordinate class interface */
 /******************************** Definition **********************************/
 #define WIDTH_LIMIT     (50u)
 #define LENGTH_LIMIT    (50u)
 
-#if (LENGTH_LIMIT < X_LIMIT - 2) && (WIDTH_LIMIT < Y_LIMIT - 2)
-    #if !(WIDTH_LIMIT && LENGTH_LIMIT)
+#if (LENGTH_LIMIT > X_LIMIT-2) || (WIDTH_LIMIT > Y_LIMIT-2) ||\
+    !(WIDTH_LIMIT && LENGTH_LIMIT)
         #error Rectangle limits are wrong
-    #endif 
 #endif //Checking limits
 /*----------------------------------------------------------------------------*/
 typedef uint16_t params_t;

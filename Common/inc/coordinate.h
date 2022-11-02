@@ -35,8 +35,8 @@ struct CoordinateVtbl; /* Mandatory forward declaration*/
 struct CoordinateAPI;  /* Mandatory forward declaration*/
 
 typedef struct {
-    struct CoordinateVtbl const *vptr; /* Coordinate's Virtual Pointer */
-    struct CoordinateAPI const *api;   /* Coordinate's API Pointer */
+    struct CoordinateVtbl const *vptr; ///< Coordinate's Virtual Pointer
+    struct CoordinateAPI const *api;   ///< Coordinate's API Pointer
     coordinate_t x; ///< x-coordinate of position
     coordinate_t y; ///< y-coordinate of position
 } Coordinate;

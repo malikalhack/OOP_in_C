@@ -15,10 +15,8 @@
 
 #define RADIUS_LIMIT     (50u)
 
-#if (RADIUS_LIMIT < X_LIMIT - 2) && (RADIUS_LIMIT < Y_LIMIT - 2)
-#if !(RADIUS_LIMIT)
+#if (RADIUS_LIMIT > X_LIMIT-2) || (RADIUS_LIMIT > Y_LIMIT-2) || !(RADIUS_LIMIT)
     #error Circle limit is wrong
-#endif 
 #endif //Checking limits
 /*----------------------------------------------------------------------------*/
 typedef uint16_t radius_t;

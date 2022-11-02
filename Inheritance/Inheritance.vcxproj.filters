@@ -13,10 +13,13 @@
     <ClInclude Include="..\Common\inc\coordinate.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="..\Common\inc\test.h">
+      <Filter>Include</Filter>
+    </ClInclude>
     <ClInclude Include="inc\rectangle.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\inc\test.h">
+    <ClInclude Include="..\Common\inc\common.h">
       <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>
@@ -27,10 +30,13 @@
     <ClCompile Include="src\main.c">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\Common\src\test.c">
+      <Filter>Source</Filter>
+    </ClCompile>
     <ClCompile Include="src\rectangle.c">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\src\test.c">
+    <ClCompile Include="..\Common\src\common.c">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

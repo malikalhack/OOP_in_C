@@ -3,13 +3,13 @@
  * @version 1.0.0
  * @authors Anton Chernov
  * @date    27/10/2022
- * @date    29/10/2022
+ * @date    02/11/2022
  */
 
 #ifndef COORDINATE_H
 #define COORDINATE_H
 /****************************** Included files ********************************/
-#include <stdint.h>
+#include "common.h"
 /******************************** Definition **********************************/
 #define X_LIMIT     (200u)
 #define Y_LIMIT     (200u)
@@ -21,14 +21,63 @@
 #define X_CENTER    (X_LIMIT/2u)
 #define Y_CENTER    (Y_LIMIT/2u)
 
-typedef uint16_t coordinate_t;
-typedef signed short offset_t;
-typedef unsigned short abs_offset_t;
+#ifdef POLYMORPHISM
+    #define SPECIFIED(name) (Super ## name)
+    #define DECLARATION static
+#else
+    #define SPECIFIED(name) (name)
+    #define DECLARATION
+#endif // POLYMORPHISM
+
+#ifdef POLYMORPHISM
+
+struct CoordinateVtbl; /* Mandatory forward declaration*/
+struct CoordinateAPI;  /* Mandatory forward declaration*/
+
+typedef struct {
+    struct CoordinateVtbl const *vptr; /* Coordinate's Virtual Pointer */
+    struct CoordinateAPI const *api;   /* Coordinate's API Pointer */
+    coordinate_t x; ///< x-coordinate of position
+    coordinate_t y; ///< y-coordinate of position
+} Coordinate;
+
+/* Coordinate's virtual table */
+struct CoordinateVtbl {
+    coordinate_t(*getXcoordinate)(Coordinate const * const);
+    coordinate_t(*getYcoordinate)(Coordinate const * const);
+    void(*mv2coordinate)(Coordinate * const, coordinate_t, coordinate_t);
+    void(*mvfromcp)(Coordinate * const, offset_t, offset_t);
+    void(*mv2llc)(Coordinate * const);
+    void(*mv2ulc)(Coordinate * const);
+    void(*mv2lrc)(Coordinate * const);
+    void(*mv2urc)(Coordinate * const);
+    void(*mv2center)(Coordinate * const);
+    float(*perimeter)(Coordinate const * const);
+    float(*area)(Coordinate const * const);
+};
+
+/* Coordinate's API Pointer */
+struct CoordinateAPI {
+    coordinate_t(*getXcoordinate)(Coordinate const * const);
+    coordinate_t(*getYcoordinate)(Coordinate const * const);
+    void(*mv2coordinate)(Coordinate * const, coordinate_t, coordinate_t);
+    void(*mvfromcp)(Coordinate * const, offset_t, offset_t);
+    void(*mv2llc)(Coordinate * const);
+    void(*mv2ulc)(Coordinate * const);
+    void(*mv2lrc)(Coordinate * const);
+    void(*mv2urc)(Coordinate * const);
+    void(*mv2center)(Coordinate * const);
+};
+
+#else
 
 typedef struct {
     coordinate_t x; ///< x-coordinate of position
     coordinate_t y; ///< y-coordinate of position
 } Coordinate;
+
+#endif // POLYMORPHISM
+
 /*************** Application Programming Interface prototypes *****************/
 
 /**
@@ -43,7 +92,7 @@ typedef struct {
 void Coordinate_ctor(Coordinate * const, coordinate_t, coordinate_t);
 
 /**
- * @brief Function for moving along the specified coordinates.
+ * @brief The public function for moving along the specified coordinates.
  * param[in] self - a pointer to the specified object
  * param[in] x - the passed new X-coordinate
  * param[in] y - the passed new Y-coordinate
@@ -52,7 +101,7 @@ void Coordinate_ctor(Coordinate * const, coordinate_t, coordinate_t);
 void MoveToCoordinate(Coordinate * const, coordinate_t, coordinate_t);
 
 /**
- * @details The function of moving from the current coordinates
+ * @details The public function of moving from the current coordinates
  * to the specified offset.
  * param[in] self - a pointer to the specified object
  * param[in] x_offset - the passed X-offset
@@ -62,45 +111,67 @@ void MoveToCoordinate(Coordinate * const, coordinate_t, coordinate_t);
 void MoveFromCurrentPoint(Coordinate * const, offset_t, offset_t);
 
 /**
- * @brief The function of moving to the lower left corner of the area.
+ * @brief The public function of moving to the lower left corner of the area.
  * param[in] self - a pointer to the specified object
  */
-void StandInTheLowerLeftCorner(Coordinate * const);
+void MoveToTheLowerLeftCorner(Coordinate * const);
 
 /**
- * @brief The function of moving to the upper left corner of the area.
+ * @brief The public function of moving to the upper left corner of the area.
  * param[in] self - a pointer to the specified object
  */
-void StandInTheUpperLeftCorner(Coordinate * const);
+void MoveToTheUpperLeftCorner(Coordinate * const);
 
 /**
- * @brief The function of moving to the lower right corner of the area.
+ * @brief The public function of moving to the lower right corner of the area.
  * param[in] self - a pointer to the specified object
  */
-void StandInTheLowerRightCorner(Coordinate * const);
+void MoveToTheLowerRightCorner(Coordinate * const);
 
 /**
- * @brief The function of moving to the upper right corner of the area.
+ * @brief The public function of moving to the upper right corner of the area.
  * param[in] self - a pointer to the specified object
  */
-void StandInTheUpperRightCorner(Coordinate * const);
+void MoveToTheUpperRightCorner(Coordinate * const);
 
 /**
- * @brief The function of moving to the centre of the area.
+ * @brief The public function of moving to the centre of the area.
  * param[in] self - a pointer to the specified object
  */
-void StandInTheCenter(Coordinate * const);
+void MoveToTheCenter(Coordinate * const);
 
 /**
- * @brief The function to return the X-coordinate for the specified object.
+ * @brief The public function to return the X-coordinate for the specified object.
  * param[in] self - a pointer to the specified object
+ * @returns the value of the x-coordinate
  */
-coordinate_t GetXCoordinate(Coordinate * const);
+coordinate_t GetXCoordinate(Coordinate const * const);
 
 /**
- * @brief The function to return the Y-coordinate for the specified object.
+ * @brief The public function to return the Y-coordinate for the specified object.
  * param[in] self - a pointer to the specified object
+ * @returns the value of the y-coordinate
  */
-coordinate_t GetYCoordinate(Coordinate * const);
+coordinate_t GetYCoordinate(Coordinate const * const);
+
+#ifdef POLYMORPHISM
+
+/**
+ * @brief The public function for calculating the values of all perimeters
+ * of the specified objects.
+ * param[in] objects - an array of pointers to the specified objects
+ * param[in] lenght - the length of the array
+ */
+void CalculateAllPerimeters(Coordinate const *[], size_t);
+
+/**
+ * @brief The public function for calculating the values of all areas
+ * of the specified objects.
+ * param[in] objects - an array of pointers to the specified objects
+ * param[in] lenght - the length of the array
+ */
+void CalculateAllAreas(Coordinate const *[], size_t);
+
+#endif /* POLYMORPHISM */
 /******************************************************************************/
 #endif /* !COORDINATE_H */

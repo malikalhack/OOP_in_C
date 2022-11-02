@@ -3,7 +3,7 @@
  * @version 1.0.0
  * @authors Anton Chernov
  * @date    27/10/2022
- * @date    29/10/2022
+ * @date    02/11/2022
  */
 
 /****************************** Included files ********************************/
@@ -35,32 +35,32 @@ int main(void) {
 /*----------------------------------------------------------------------------*/
 #if ENABLE_QUICK_TEST
     TEST_START("moving to the lower left corner of the area");
-    StandInTheLowerLeftCorner(&p1);
-    StandInTheLowerLeftCorner(&p2);
+    MoveToTheLowerLeftCorner(&p1);
+    MoveToTheLowerLeftCorner(&p2);
     PrintCoordinatesOfBothPoints(&p1, &p2);
     TEST_FINISH;
 /*----------------------------------------------------------------------------*/
     TEST_START("moving to the upper left corner of the area");
-    StandInTheUpperLeftCorner(&p1);
-    StandInTheUpperLeftCorner(&p2);
+    MoveToTheUpperLeftCorner(&p1);
+    MoveToTheUpperLeftCorner(&p2);
     PrintCoordinatesOfBothPoints(&p1, &p2);
     TEST_FINISH;
 /*----------------------------------------------------------------------------*/
     TEST_START("moving to the lower right corner of the area");
-    StandInTheLowerRightCorner(&p1);
-    StandInTheLowerRightCorner(&p2);
+    MoveToTheLowerRightCorner(&p1);
+    MoveToTheLowerRightCorner(&p2);
     PrintCoordinatesOfBothPoints(&p1, &p2);
     TEST_FINISH;
 /*----------------------------------------------------------------------------*/
     TEST_START("moving to the upper right corner of the area");
-    StandInTheUpperRightCorner(&p1);
-    StandInTheUpperRightCorner(&p2);
+    MoveToTheUpperRightCorner(&p1);
+    MoveToTheUpperRightCorner(&p2);
     PrintCoordinatesOfBothPoints(&p1, &p2);
     TEST_FINISH;
 /*----------------------------------------------------------------------------*/
     TEST_START("returning to the centre of the area");
-    StandInTheCenter(&p1);
-    StandInTheCenter(&p2);
+    MoveToTheCenter(&p1);
+    MoveToTheCenter(&p2);
     PrintCoordinatesOfBothPoints(&p1, &p2);
     TEST_FINISH;
 #endif // ENABLE_QUICK_TEST

@@ -3,21 +3,23 @@
  * @version 1.0.0
  * @authors Anton Chernov
  * @date    29/10/2022
- * @date    30/10/2022
+ * @date    02/11/2022
  */
 
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
-/****************************** Included files ********************************/
+ /****************************** Included files ********************************/
 #include "coordinate.h" /* coordinate class interface */
 /******************************** Definition **********************************/
 #define WIDTH_LIMIT     (50u)
 #define LENGTH_LIMIT    (50u)
 
-#if !(WIDTH_LIMIT && LENGTH_LIMIT)
-    #error Rectangle limits are wrong
+#if (LENGTH_LIMIT < X_LIMIT - 2) && (WIDTH_LIMIT < Y_LIMIT - 2)
+    #if !(WIDTH_LIMIT && LENGTH_LIMIT)
+        #error Rectangle limits are wrong
+    #endif 
 #endif //Checking limits
-
+/*----------------------------------------------------------------------------*/
 typedef uint16_t params_t;
 
 /* Rectangle's attributes... */
@@ -31,30 +33,27 @@ typedef struct {
 
 /**
  * @brief Constructor function
- * @details Initializes the specified object with the passed coordinates,
- * length and width
+ * @details Initializes the specified object with the passed length and width
  * param[in] self - a pointer to the specified object
- * param[in] x - the passed X-coordinate
- * param[in] y - the passed Y-coordinate
- * param[in] y - the passed width
+ * param[in] x - the passed width
  * param[in] y - the passed length
- * @note The coordinates are limited. An exception will be thrown if you try to
- * go beyond the limit.
+ * @note The coordinates are limited. An exception will be thrown if you try
+ * to go beyond the limit.
  */
-void Rectangle_ctor(
-    Rectangle * const, coordinate_t, coordinate_t, params_t, params_t
-);
+void Rectangle_ctor( Rectangle * const, params_t, params_t);
 
 /**
  * @brief The function to return the length for the specified object.
  * param[in] self - a pointer to the specified object
+ * @returns the value of the lenght
  */
-params_t GetLength(Rectangle * const);
+params_t GetLength(Rectangle const * const);
 
 /**
  * @brief The function to return the width for the specified object.
  * param[in] self - a pointer to the specified object
+ * @returns the value of the width
  */
-params_t GetWidth(Rectangle * const);
+params_t GetWidth(Rectangle const * const);
 /******************************************************************************/
 #endif /* !RECTANGLE_H */

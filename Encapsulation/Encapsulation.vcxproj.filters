@@ -28,5 +28,8 @@
     <ClInclude Include="..\Common\inc\test.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="..\Common\inc\common.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

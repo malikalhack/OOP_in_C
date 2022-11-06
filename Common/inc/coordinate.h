@@ -1,6 +1,6 @@
 /**
  * @file    coordinate.h
- * @version 1.0.0
+ * @version 1.1.0
  * @authors Anton Chernov
  * @date    27/10/2022
  * @date    02/11/2022

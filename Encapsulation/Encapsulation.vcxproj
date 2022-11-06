@@ -155,6 +155,7 @@
     <ClCompile Include="src\main.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Common\inc\common.h" />
     <ClInclude Include="..\Common\inc\coordinate.h" />
     <ClInclude Include="..\Common\inc\test.h" />
   </ItemGroup>

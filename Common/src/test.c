@@ -1,6 +1,6 @@
 /**
  * @file    test.c
- * @version 1.0.0
+ * @version 1.1.0
  * @authors Anton Chernov
  * @date    30/10/2022
  * @date    06/11/2022

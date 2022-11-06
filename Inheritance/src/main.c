@@ -3,7 +3,7 @@
  * @version 1.0.0
  * @authors Anton Chernov
  * @date    29/10/2022
- * @date    01/11/2022
+ * @date    06/11/2022
  */
 
 /****************************** Included files ********************************/
@@ -28,18 +28,18 @@ int main(void) {
         params_t l, w;
         printf("\nEnter the width of rectangle r1: ");
         fflush(stdout);
-        scanf("%hu", &w);
+        DISCARD_RETURN(scanf("%hu", &w));
         printf("Enter the length of rectangle r1: ");
         fflush(stdout);
-        scanf("%hu", &l);
+        DISCARD_RETURN(scanf("%hu", &l));
         Rectangle_ctor(&r1, w, l);
 
         printf("\nEnter the width of rectangle r2: ");
         fflush(stdout);
-        scanf("%hu", &w);
+        DISCARD_RETURN(scanf("%hu", &w));
         printf("Enter the length of rectangle r2: ");
         fflush(stdout);
-        scanf("%hu", &l);
+        DISCARD_RETURN(scanf("%hu", &l));
         Rectangle_ctor(&r2, w, l);
     }
     printf(
@@ -112,17 +112,17 @@ int main(void) {
         TEST_START("moving to the specified offset");
         printf("Enter offset for center point of the rectangle r1:\nx: ");
         fflush(stdout);
-        scanf(" %hd", &xof);
+        DISCARD_RETURN(scanf(" %hd", &xof));
         printf("y: ");
         fflush(stdout);
-        scanf(" %hd", &yof);
+        DISCARD_RETURN(scanf(" %hd", &yof));
         MoveFromCurrentPoint(SUPER_UPCAST(&r1), xof, yof);
         printf("\nEnter offset for center point of the rectangle r2:\nx: ");
         fflush(stdout);
-        scanf(" %hd", &xof);
+        DISCARD_RETURN(scanf(" %hd", &xof));
         printf("y: ");
         fflush(stdout);
-        scanf(" %hd", &yof);
+        DISCARD_RETURN(scanf(" %hd", &yof));
         MoveFromCurrentPoint(SUPER_UPCAST(&r2), xof, yof);
         PrintCoordinatesOfBothRectangles(&r1, &r2);
         TEST_FINISH;

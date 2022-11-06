@@ -3,7 +3,7 @@
  * @version 1.0.0
  * @authors Anton Chernov
  * @date    27/10/2022
- * @date    02/11/2022
+ * @date    06/11/2022
  */
 
 /****************************** Included files ********************************/
@@ -92,17 +92,17 @@ int main(void) {
         TEST_START("moving to the specified offset");
         printf("Enter offset for point p1:\nx: ");
         fflush(stdout);
-        scanf(" %hd", &xof);
+        DISCARD_RETURN(scanf(" %hd", &xof));
         printf("y: ");
         fflush(stdout);
-        scanf(" %hd", &yof);
+        DISCARD_RETURN(scanf(" %hd", &yof));
         MoveFromCurrentPoint(&p1, xof, yof);
         printf("\nEnter coordinates for point p2:\nx: ");
         fflush(stdout);
-        scanf(" %hd", &xof);
+        DISCARD_RETURN(scanf(" %hd", &xof));
         printf("y: ");
         fflush(stdout);
-        scanf(" %hd", &yof);
+        DISCARD_RETURN(scanf(" %hd", &yof));
         MoveFromCurrentPoint(&p2, xof, yof);
         PrintCoordinatesOfBothPoints(&p1, &p2);
         TEST_FINISH;

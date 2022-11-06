@@ -3,6 +3,7 @@
  * @version 1.0.0
  * @authors Anton Chernov
  * @date    30/10/2022
+ * @date    06/11/2022
  */
 
 #ifndef TEST_H
@@ -11,6 +12,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 /******************************** Definition **********************************/
+#define DISCARD_RETURN(f) ((void)f)
 #define TEST_START(name)\
     printf("\n\r>>> Test start for %s <<<\n\n", name)
 #define TEST_FINISH \

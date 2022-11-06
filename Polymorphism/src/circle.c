@@ -3,7 +3,7 @@
  * @version 1.0.0
  * @authors Anton Chernov
  * @date    01/11/2022
- * @date    02/11/2022
+ * @date    06/11/2022
  */
 
  /****************************** Included files ********************************/
@@ -29,7 +29,7 @@ static void make_move(
     coordinate_t const limit
 ) {
     if (*offset) {
-        coordinate_t lower_limit = *param / 2;
+        coordinate_t lower_limit = HALF_PARAMETER(*param);
         coordinate_t higher_limit = limit - lower_limit;
         abs_offset_t abs_offset = abs(*offset);
 
@@ -51,7 +51,7 @@ static coordinate_t make_rebase(
     coordinate_t const limit
 ) {
     coordinate_t result;
-    coordinate_t lower_limit = *param / 2;
+    coordinate_t lower_limit = HALF_PARAMETER(*param);
     coordinate_t higher_limit = limit - lower_limit;
 
     if (*new_coordinate < lower_limit) { result = lower_limit; }
@@ -120,26 +120,26 @@ static void CircleMoveFromCurrentPoint_(
 /*----------------------------------------------------------------------------*/
 static void CircleMoveToTheLowerLeftCorner_(Coordinate * const self) {
     Circle * const _self = (Circle *)self; /* explicit downcast */
-    radius_t temp = _self->radius / 2;
+    radius_t temp = HALF_PARAMETER(_self->radius);
     _self->super.x = temp;
     _self->super.y = temp;
 }
 /*----------------------------------------------------------------------------*/
 static void CircleMoveToTheUpperLeftCorner_(Coordinate * const self) {
     Circle * const _self = (Circle *)self; /* explicit downcast */
-    _self->super.x = _self->radius / 2;
+    _self->super.x = HALF_PARAMETER(_self->radius);
     _self->super.y = Y_LIMIT - _self->super.x;
 }
 /*----------------------------------------------------------------------------*/
 static void CircleMoveToTheLowerRightCorner_(Coordinate * const self) {
     Circle * const _self = (Circle *)self; /* explicit downcast */
-    _self->super.y = _self->radius / 2;
+    _self->super.y = HALF_PARAMETER(_self->radius);
     _self->super.x = X_LIMIT - _self->super.y;
 }
 /*----------------------------------------------------------------------------*/
 static void CircleMoveToTheUpperRightCorner_(Coordinate * const self) {
     Circle * const _self = (Circle *)self; /* explicit downcast */
-    radius_t temp = _self->radius / 2;
+    radius_t temp = HALF_PARAMETER(_self->radius);
     _self->super.x = X_LIMIT - temp;
     _self->super.y = Y_LIMIT - temp;
 }

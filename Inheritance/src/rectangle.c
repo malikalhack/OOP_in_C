@@ -3,7 +3,7 @@
  * @version 1.0.0
  * @authors Anton Chernov
  * @date    29/10/2022
- * @date    02/11/2022
+ * @date    06/11/2022
  */
 
 /****************************** Included files ********************************/
@@ -31,7 +31,7 @@ static void make_move(
     coordinate_t const limit
 ) {
     if (*offset) {
-        coordinate_t lower_limit = *param / 2;
+        coordinate_t lower_limit = HALF_PARAMETER(*param);
         coordinate_t higher_limit = limit - lower_limit;
         abs_offset_t abs_offset = abs(*offset);
 
@@ -53,7 +53,7 @@ static coordinate_t make_rebase(
     coordinate_t const limit
 ) {
     coordinate_t result;
-    coordinate_t lower_limit = *param / 2;
+    coordinate_t lower_limit = HALF_PARAMETER(*param);
     coordinate_t higher_limit = limit - lower_limit;
 
     if (*new_coordinate < lower_limit) { result = lower_limit; }
@@ -136,26 +136,26 @@ static void RectangleMoveFromCurrentPoint_(
 /*----------------------------------------------------------------------------*/
 static void RectangleMoveToTheLowerLeftCorner_(Coordinate * const self) {
     Rectangle * const _self = (Rectangle *)self; /* explicit downcast */
-    _self->super.x = _self->length / 2;
-    _self->super.y = _self->width / 2;
+    _self->super.x = HALF_PARAMETER(_self->length);
+    _self->super.y = HALF_PARAMETER(_self->width);
 }
 /*----------------------------------------------------------------------------*/
 static void RectangleMoveToTheUpperLeftCorner_(Coordinate * const self) {
     Rectangle * const _self = (Rectangle *)self; /* explicit downcast */
-    _self->super.x = _self->length / 2;
-    _self->super.y = Y_LIMIT - _self->width / 2;
+    _self->super.x = HALF_PARAMETER(_self->length);
+    _self->super.y = Y_LIMIT - HALF_PARAMETER(_self->width);
 }
 /*----------------------------------------------------------------------------*/
 static void RectangleMoveToTheLowerRightCorner_(Coordinate * const self) {
     Rectangle * const _self = (Rectangle *)self; /* explicit downcast */
-    _self->super.x = X_LIMIT - _self->length / 2;
-    _self->super.y = _self->width / 2;
+    _self->super.x = X_LIMIT - HALF_PARAMETER(_self->length);
+    _self->super.y = HALF_PARAMETER(_self->width);
 }
 /*----------------------------------------------------------------------------*/
 static void RectangleMoveToTheUpperRightCorner_(Coordinate * const self) {
     Rectangle * const _self = (Rectangle *)self; /* explicit downcast */
-    _self->super.x = X_LIMIT - _self->length / 2;
-    _self->super.y = Y_LIMIT - _self->width / 2;
+    _self->super.x = X_LIMIT - HALF_PARAMETER(_self->length);
+    _self->super.y = Y_LIMIT - HALF_PARAMETER(_self->width);
 }
 /*----------------------------------------------------------------------------*/
 static void RectangleMoveToTheCenter_(Coordinate * const self) {

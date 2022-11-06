@@ -3,6 +3,7 @@
  * @version 1.0.0
  * @authors Anton Chernov
  * @date    02/11/2022
+ * @date    06/11/2022
  */
 
 #ifndef COMMON_H
@@ -10,6 +11,8 @@
  /****************************** Included files ********************************/
 #include <stdint.h>
 /******************************** Definition **********************************/
+#define HALF_PARAMETER(param) ((param) & 0x1 ? (param) / 2 + 1 : (param) / 2)
+
 typedef uint16_t coordinate_t;
 typedef signed short offset_t;
 typedef unsigned short abs_offset_t;

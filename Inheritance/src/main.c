@@ -28,18 +28,18 @@ int main(void) {
         params_t l, w;
         printf("\nEnter the width of rectangle r1: ");
         fflush(stdout);
-        DISCARD_RETURN(scanf("%hu", &w));
+        DISCARD_RETURN(scanf(" %hu", &w));
         printf("Enter the length of rectangle r1: ");
         fflush(stdout);
-        DISCARD_RETURN(scanf("%hu", &l));
+        DISCARD_RETURN(scanf(" %hu", &l));
         Rectangle_ctor(&r1, w, l);
 
         printf("\nEnter the width of rectangle r2: ");
         fflush(stdout);
-        DISCARD_RETURN(scanf("%hu", &w));
+        DISCARD_RETURN(scanf(" %hu", &w));
         printf("Enter the length of rectangle r2: ");
         fflush(stdout);
-        DISCARD_RETURN(scanf("%hu", &l));
+        DISCARD_RETURN(scanf(" %hu", &l));
         Rectangle_ctor(&r2, w, l);
     }
     printf(
@@ -91,17 +91,17 @@ int main(void) {
         TEST_START("moving to specified coordinates");
         printf("Enter coordinates for center point of the rectangle r1:\nx: ");
         fflush(stdout);
-        scanf_s("%hu", &x);
+        DISCARD_RETURN(scanf(" %hu", &x));
         printf("y: ");
         fflush(stdout);
-        scanf_s("%hu", &y);
+        DISCARD_RETURN(scanf(" %hu", &y));
         MoveToCoordinate(SUPER_UPCAST(&r1), x, y);
         printf("\nEnter coordinates for center point of the rectangle r2:\nx: ");
         fflush(stdout);
-        scanf_s("%hu", &x);
+        DISCARD_RETURN(scanf(" %hu", &x));
         printf("y: ");
         fflush(stdout);
-        scanf_s("%hu", &y);
+        DISCARD_RETURN(scanf(" %hu", &y));
         MoveToCoordinate(SUPER_UPCAST(&r2), x, y);
         PrintCoordinatesOfBothRectangles(&r1, &r2);
         TEST_FINISH;

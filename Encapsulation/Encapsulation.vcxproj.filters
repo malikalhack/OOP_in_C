@@ -20,6 +20,9 @@
     <ClCompile Include="..\Common\src\test.c">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\Common\src\common.c">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\inc\coordinate.h">

@@ -150,6 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Common\src\common.c" />
     <ClCompile Include="..\Common\src\coordinate.c" />
     <ClCompile Include="..\Common\src\test.c" />
     <ClCompile Include="src\main.c" />
